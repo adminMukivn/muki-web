@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Muki - Bán Acc Game (Demo v2)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="pageBody">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Muki — Bán Acc Game (Demo)</h1>
+          <p class="lead">Demo front-end: cần backend để giao acc thật an toàn.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+          <input id="q" type="text" placeholder="Tìm game, nhân vật, level..." />
+        </div>
+
+        <div class="topbar-actions">
+          <button id="themeToggle" class="btn ghost">Light</button>
+          <div id="userArea" class="badge"></div>
+          <button id="openCart" class="btn">Giỏ (0)</button>
+          <button id="openAdmin" class="btn ghost">Admin</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 style="margin:0">Danh sách acc</h2>
+          <div class="small">Tổng: <span id="totalProducts">0</span> acc</div>
+        </div>
+
+        <div style="margin:12px 0;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn ghost" data-filter="all">Tất cả</button>
+          <button class="btn ghost" data-filter="pubg">PUBG</button>
+          <button class="btn ghost" data-filter="lol">Liên Minh</button>
+          <button class="btn ghost" data-filter="tft">Auto Chess</button>
+        </div>
+
+        <div id="products" class="products"></div>
+      </section>
+
+      <aside>
+        <div class="cart">
+          <h3>Giỏ hàng</h3>
+          <div id="cartList"></div>
+          <div class="total"><div>Tổng</div><div id="sum">0 VND</div></div>
+
+          <div style="margin-top:8px" class="form-row">
+            <input id="promoCode" type="text" placeholder="Mã khuyến mãi (demo)" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/>
+            <button id="applyPromo" class="btn ghost">Áp dụng</button>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button id="checkout" class="btn">Thanh toán (demo)</button>
+            <button id="clearCart" class="btn ghost">Xóa</button>
+          </div>
+
+          <div class="admin" style="margin-top:12px">
+            <div class="small">Mục quản trị (demo)</div>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <button id="adminPanelBtn" class="btn ghost">Mở Admin</button>
+              <button id="btnExportProducts" class="btn ghost">Export CSV</button>
+              <label class="btn ghost" style="padding:6px 10px;cursor:pointer">
+                Import CSV <input id="importProducts" type="file" accept=".csv" style="display:none" />
+              </label>
+            </div>
+            <div class="small" style="margin-top:8px">Lưu ý: giao acc thực tế cần backend & hệ thống giao hàng an toàn.</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © Muki Demo — Bản demo front-end. Không dùng để giao dịch thật.
+    </footer>
+  </div>
+
+  <!-- Modal backdrop -->
+  <div id="modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div id="modalContent"></div>
+      <div style="margin-top:12px;text-align:right">
+        <button id="closeModal" class="btn ghost">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastArea" style="position:fixed;right:20px;bottom:20px;z-index:80"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
